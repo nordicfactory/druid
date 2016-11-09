@@ -407,6 +407,13 @@ public class JobHelper
             "key", indexOutURI.getPath().substring(1) // remove the leading "/"
         );
         break;
+      case "wasb":
+        loadSpec = ImmutableMap.<String, Object>of(
+                "type", "azure",
+                "path", indexOutURI.toString(),
+                "containerName" ,indexOutURI.getUserInfo(),
+                "blobPath" , indexOutURI.getPath().substring(1)
+        );
       case "file":
         loadSpec = ImmutableMap.<String, Object>of(
             "type", "local",
