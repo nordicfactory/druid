@@ -61,7 +61,7 @@ public class AzureDataSegmentPusher implements DataSegmentPusher
   @Override
   public String getPathForHadoop(String dataSource)
   {
-    return null;
+    return "";
   }
 
   public File createSegmentDescriptorFile(final ObjectMapper jsonMapper, final DataSegment segment) throws
@@ -77,7 +77,7 @@ public class AzureDataSegmentPusher implements DataSegmentPusher
 
   public Map<String, String> getAzurePaths(final DataSegment segment)
   {
-    final String storageDir = DataSegmentPusherUtil.getStorageDir(segment);
+    final String storageDir = DataSegmentPusherUtil.getHdfsStorageDir(segment);
 
     return ImmutableMap.of(
         "index", String.format("%s/%s", storageDir, AzureStorageDruidModule.INDEX_ZIP_FILE_NAME),
