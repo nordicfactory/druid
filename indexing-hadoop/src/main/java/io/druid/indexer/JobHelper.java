@@ -414,6 +414,7 @@ public class JobHelper
                 "containerName" ,indexOutURI.getUserInfo(),
                 "blobPath" , indexOutURI.getPath().substring(1)
         );
+        break;
       case "file":
         loadSpec = ImmutableMap.<String, Object>of(
             "type", "local",
