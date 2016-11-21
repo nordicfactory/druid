@@ -77,7 +77,7 @@ public class AzureDataSegmentPusher implements DataSegmentPusher
 
   public Map<String, String> getAzurePaths(final DataSegment segment)
   {
-    final String storageDir = DataSegmentPusherUtil.getHdfsStorageDir(segment);
+    final String storageDir = DataSegmentPusherUtil.getStorageDir(segment);
 
     return ImmutableMap.of(
         "index", String.format("%s/%s", storageDir, AzureStorageDruidModule.INDEX_ZIP_FILE_NAME),
