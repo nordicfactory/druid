@@ -61,7 +61,7 @@ public class AzureDataSegmentPusher implements DataSegmentPusher
   @Override
   public String getPathForHadoop(String dataSource)
   {
-    return "";
+    return String.format("wasb://%s@%s.blob.core.windows.net/", config.getContainer(), config.getAccount(), dataSource);
   }
 
   public File createSegmentDescriptorFile(final ObjectMapper jsonMapper, final DataSegment segment) throws

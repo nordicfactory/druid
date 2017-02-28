@@ -557,7 +557,7 @@ public class JobHelper
       DataSegment segment
   )
   {
-    String segmentDir = "hdfs".equals(fileSystem.getScheme()) || "viewfs".equals(fileSystem.getScheme())
+    String segmentDir = ("wasb".equals(fileSystem.getScheme()) ||"hdfs".equals(fileSystem.getScheme()) || "viewfs".equals(fileSystem.getScheme()))
                         ? DataSegmentPusherUtil.getHdfsStorageDir(segment)
                         : DataSegmentPusherUtil.getStorageDir(segment);
     return new Path(prependFSIfNullScheme(fileSystem, basePath), String.format("./%s", segmentDir));
