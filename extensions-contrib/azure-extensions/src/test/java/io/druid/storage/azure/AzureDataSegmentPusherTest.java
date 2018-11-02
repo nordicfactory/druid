@@ -182,7 +182,7 @@ public class AzureDataSegmentPusherTest extends EasyMockSupport
   {
     AzureDataSegmentPusher pusher = new AzureDataSegmentPusher(azureStorage, azureAccountConfig, jsonMapper);
     String hadoopPath = pusher.getPathForHadoop();
-    Assert.assertEquals("wasbs://container@account.blob.core.windows.net/", hadoopPath);
+    Assert.assertEquals("wasb://container@account.blob.core.windows.net/", hadoopPath);
   }
 
   @Test
